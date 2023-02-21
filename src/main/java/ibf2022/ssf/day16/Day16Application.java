@@ -24,12 +24,14 @@ public class Day16Application implements CommandLineRunner {
 	public void run(String... args) {
 
 		// Create a simple json object, something you are trying to build
-		// {"name": "fred", "email": "fred"}
+		
 		JsonObject json = Json.createObjectBuilder()
 				.add("name", "fred")
 				.add("email", "fred@gmail.com")
+				.add("age", 30)
+				.add("subscribe", false)
 				.build();
-
+			
 		System.out.printf("+++++	json: %s\n", json.toString());
 
 		// Create a json array
@@ -43,12 +45,12 @@ public class Day16Application implements CommandLineRunner {
 				{
 					"orderId": 1234, "address": "10 Bedrock Ave",
 					"lineItems": [
-						{"name": "apple", "quantity": 10},
-						{"name": "orange", "quantity": 20},
+						{ "name": "apple", "quantity": 10 },
+						{ "name": "orange", "quantity": 20 }
 					]
 				}
-				""";
-				System.out.printf(">>>>>>> jsonStr: \n%s\n", jsonStr);
+			""";
+			System.out.printf(">>>>>>> jsonStr: \n%s\n", jsonStr);
 
 
 		// Create json reader to read object
@@ -66,8 +68,7 @@ public class Day16Application implements CommandLineRunner {
 		for (int i = 0; i <array.size(); i++){
 			json = array.getJsonObject(i);
 			System.out.printf("\tname: %s, quantity: %d\n", json.getString("name"), json.getInt("quantity"));
-		}
-
+		// }
 	}
-
+	}
 }
